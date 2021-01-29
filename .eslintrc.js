@@ -34,5 +34,13 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'import/no-unresolved': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+  },
+  settings: {
+    'import/resolver': {
+      'babel-plugin-root-import': {
+        rootPathSuffix: 'src',
+      },
+    },
   },
 };
