@@ -1,9 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Form, Input } from '@rocketseat/unform';
+
+import logo from '../../assets/logo.svg';
 
 // import { Container } from './styles';
 
-function SignIn() {
-  return <h1>Login</h1>;
-}
+export default function SignIn() {
+  function handleSubmit(data) {
+    console.tron.log(data);
+  }
 
-export default SignIn;
+  return (
+    <>
+      <img src={logo} alt="GoBarber" />
+
+      <Form onSubmit={handleSubmit}>
+        <Input name="email" type="email" placeholder="Seu E-mail" />
+        <Input
+          name="password"
+          type="password"
+          placeholder="Sua senha secreta"
+        />
+
+        <button type="submit">Acessar</button>
+        <Link to="/register">Criar conta Gratuita</Link>
+      </Form>
+    </>
+  );
+}
