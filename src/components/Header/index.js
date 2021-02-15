@@ -1,14 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Notifications from '../Notifications';
 
 import logo from '../../assets/logo.svg';
-import Israel from '../../assets/Israel.jpg';
 
 import { Container, Content, Profile } from './styles';
 
 function Header() {
+  const profile = useSelector((state) => state.user.profile);
+
   return (
     <Container>
       <Content>
@@ -22,10 +24,10 @@ function Header() {
 
           <Profile>
             <div>
-              <strong>Israel Carlos</strong>
+              <strong>{profile.name}</strong>
               <Link to="/profile">Meu perfil</Link>
             </div>
-            <img src={Israel} alt="Eu" />
+            <img src={profile.avatar.url} alt="Eu" />
           </Profile>
         </aside>
       </Content>
